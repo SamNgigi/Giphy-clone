@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 })
 export class TrendingComponent implements OnInit {
 
+  gifs = []
 
   constructor(private requestService:TrendRequestService) { }
 
@@ -18,9 +19,9 @@ export class TrendingComponent implements OnInit {
 
    this.requestService.trendingGifs().subscribe(res =>{
      console.log(res);
-
-     let gifs = res["data"].map(res => res.images.original.url);
-     console.log(gifs);
+// We have to use this.gifs to have access to the data array
+     this.gifs = res["data"].map(res => res.images.original.url);
+     console.log(this.gifs);
    })
   }
 
