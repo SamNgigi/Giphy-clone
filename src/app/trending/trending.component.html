@@ -1,4 +1,6 @@
 <button type="button" class="btn btn-outline-primary" (click)= "searchGifs()"  >
   Working!
 </button>
-<img src="{{gifs}}" alt="">
+<div class="container-fluid" *ngFor = "let data of data">
+{{data}}
+</div>

@@ -1,36 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClientModule} from '@angular/common/http';
-import {HttpClient} from '@angular/common/http';
+import { TrendRequestService } from '../trend-http/trend-request.service';
+import 'rxjs/add/operator/map';
+
 @Component({
   selector: 'app-trending',
   templateUrl: './trending.component.html',
   styleUrls: ['./trending.component.css']
 })
 export class TrendingComponent implements OnInit {
-   gifs:string;
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private requestService:TrendRequestService) { }
 
 
-  searchGifs(){
-    return   this.http.get("http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC").subscribe(
-      data=> console.log(data),
-      error=> console.log(error),
-      ()=> console.log("Request complete")
-        //  this.gifs = data["images.original.url"];
-      )
-  }
 
   ngOnInit() {
 
-    interface ApiResponse{
-      gifs:string;
-
-
-  }
-
-
+   this.requestService.trendingGifs().subscribe(res =>{
+     console.log(res);
+   })
   }
 
 

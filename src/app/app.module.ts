@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { GiphyComponent } from './giphy/giphy.component';
 import { SearchComponent } from './search/search.component';
 import { TrendingComponent } from './trending/trending.component';
+import { TrendRequestService } from './trend-http/trend-request.service';
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import { TrendingComponent } from './trending/trending.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [TrendRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
