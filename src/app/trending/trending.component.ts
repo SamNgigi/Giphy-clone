@@ -18,6 +18,9 @@ export class TrendingComponent implements OnInit {
 
    this.requestService.trendingGifs().subscribe(res =>{
      console.log(res);
+
+     let gifs = res["data"].map(res => res.images.original.url);
+     console.log(gifs);
    })
   }
 
